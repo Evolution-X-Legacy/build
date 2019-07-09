@@ -841,7 +841,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print(" / /___ | |/ / /_/ / / /_/ / /_/ / /_/ / / / /   |  ");
   script.Print("/_____/ |___/\____/_/\__,_/\__/_/\____/_/ /_/_/|_|  ");
   script.Print("                                                    ");
-  script.Print("                  By Stallix & Agrd1129             ");
+  script.Print(" By Stallix, Peaktogoo, AnierinB, Hugwalk & Agrd1129");
   script.Print("----------------------------------------------------");
   script.Print(" Android version: %s"%(android_version));
   script.Print(" Build id: %s"%(build_id));
