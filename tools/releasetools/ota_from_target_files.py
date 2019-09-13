@@ -305,7 +305,8 @@ class BuildInfo(object):
     try:
       return self.info_dict.get("build.prop", {})[prop]
     except KeyError:
-      raise common.ExternalError("couldn't find %s in build.prop" % (prop,))
+      print("WARNING: could not find %s in build.prop" % (prop,))
+      return None
 
   def GetVendorBuildProp(self, prop):
     """Returns the inquired vendor build property."""
@@ -875,7 +876,12 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   if HasVendorPartition(input_zip):
     system_progress -= 0.1
 
-  model = target_info.GetBuildProp("ro.product.model")
+  device = target_info.GetBuildProp("ro.product.device")
+  if target_info.GetBuildProp("ro.product.model") is not None:
+    model = target_info.GetBuildProp("ro.product.model")
+    script.Print("*   Device: %s (%s)"%(model, device));
+  else:
+    script.Print("*   Device: %s"%(device));
   build = target_info.GetBuildProp("ro.build.date")
 
   script.ShowProgress(system_progress, 0)
